@@ -1,0 +1,5 @@
+node_modules
+npm-debug.log*
+.DS_Store
+# OJO: la consigna del TP pide subir el .env (con valores de ejemplo).
+# Si algún día usás credenciales reales, agregá ".env" a este archivo.
