@@ -1,4 +1,4 @@
-# 🧉 MateA API — Backend de la plataforma de cursos online
+# MateA API — Backend de la plataforma de cursos online
 
 API RESTful para **MateA**, una plataforma de cursos online al estilo Udemy. Alumnos exploran el catálogo y se registran; instructores y administradores gestionan los cursos y las categorías. Es el backend del sitio de MateA hecho en React (TP Frontend) y el **Trabajo Práctico Final del curso de Backend Developer (UTN BA)**.
 
@@ -6,7 +6,7 @@ El proyecto aplica **separación de responsabilidades**: las rutas delegan en co
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+## Tecnologías utilizadas
 
 | Tecnología | Uso |
 |---|---|
@@ -21,7 +21,7 @@ El proyecto aplica **separación de responsabilidades**: las rutas delegan en co
 
 ---
 
-## 📁 Estructura del proyecto
+## Estructura del proyecto
 
 ```
 matea-api/
@@ -58,7 +58,7 @@ matea-api/
 
 ---
 
-## 🚀 Cómo correr el proyecto
+## Cómo correr el proyecto
 
 ### Requisitos
 - Node.js 18 o superior
@@ -68,7 +68,7 @@ matea-api/
 
 ```bash
 # 1. Clonar el repositorio
-git clone <URL-DEL-REPO>
+git clone https://github.com/Lautaro1661/matea-api.git
 cd matea-api
 
 # 2. Instalar dependencias
@@ -173,7 +173,7 @@ categories (1) ────< (N) cursos (N) >──── (1) users [rol: instru
 
 ---
 
-## 🔐 Autenticación y permisos
+## Autenticación y permisos
 
 Las rutas protegidas requieren el header:
 
@@ -229,7 +229,7 @@ Se pueden combinar: `/api/cursos?categoria=negocios-y-marketing&nivel=principian
 
 ---
 
-## 🧪 Ejemplos de datos Mock (JSON)
+## Ejemplos de datos Mock (JSON)
 
 > Todas las respuestas tienen la forma `{ "success": true|false, "message"?, "data"? }`.
 
@@ -266,7 +266,7 @@ Se pueden combinar: `/api/cursos?categoria=negocios-y-marketing&nivel=principian
 }
 ```
 
-### 🔑 `POST /api/usuarios/login`
+### `POST /api/usuarios/login`
 **Request body**
 ```json
 {
@@ -296,7 +296,7 @@ Se pueden combinar: `/api/cursos?categoria=negocios-y-marketing&nivel=principian
 { "success": false, "message": "Credenciales inválidas" }
 ```
 
-### 🙋 `GET /api/usuarios/me`
+### `GET /api/usuarios/me`
 Header: `Authorization: Bearer <token>` — sin body.
 
 **Response `200`**
@@ -313,7 +313,7 @@ Header: `Authorization: Bearer <token>` — sin body.
 }
 ```
 
-### 🏷️ `GET /api/categorias`
+### `GET /api/categorias`
 **Response `200`**
 ```json
 {
@@ -332,7 +332,7 @@ Header: `Authorization: Bearer <token>` — sin body.
 }
 ```
 
-### 🏷️ `GET /api/categorias/:id`
+### `GET /api/categorias/:id`
 **Response `200`**
 ```json
 {
@@ -348,7 +348,7 @@ Header: `Authorization: Bearer <token>` — sin body.
 }
 ```
 
-### 🏷️ `POST /api/categorias` *(admin)*
+### `POST /api/categorias` *(admin)*
 **Request body**
 ```json
 {
@@ -374,7 +374,7 @@ Header: `Authorization: Bearer <token>` — sin body.
 }
 ```
 
-### 🏷️ `DELETE /api/categorias/:id` *(admin)* — sin body
+###  `DELETE /api/categorias/:id` *(admin)* — sin body
 **Response `200`**
 ```json
 {
@@ -388,7 +388,7 @@ Header: `Authorization: Bearer <token>` — sin body.
 { "success": false, "message": "No se puede eliminar: la categoría tiene 3 curso(s) asociado(s)" }
 ```
 
-### 📚 `GET /api/cursos`
+### `GET /api/cursos`
 **Response `200`** (la categoría llega completa gracias a `populate`; del instructor solo el nombre)
 ```json
 {
@@ -422,7 +422,7 @@ Header: `Authorization: Bearer <token>` — sin body.
 }
 ```
 
-### 📚 `GET /api/cursos/:id`
+### `GET /api/cursos/:id`
 Misma estructura que un elemento de la lista anterior, dentro de `"data": { ... }`.
 
 **Response `404`**
@@ -430,7 +430,7 @@ Misma estructura que un elemento de la lista anterior, dentro de `"data": { ... 
 { "success": false, "message": "Curso no encontrado" }
 ```
 
-### 📚 `POST /api/cursos` *(admin / instructor)*
+### `POST /api/cursos` *(admin / instructor)*
 **Request body**
 ```json
 {
@@ -472,7 +472,7 @@ Misma estructura que un elemento de la lista anterior, dentro de `"data": { ... 
 }
 ```
 
-### 📚 `PUT /api/cursos/:id` *(admin / dueño)*
+### `PUT /api/cursos/:id` *(admin / dueño)*
 Se envían solo los campos a modificar.
 
 **Request body**
@@ -496,7 +496,7 @@ Se envían solo los campos a modificar.
 { "success": false, "message": "No tenés permiso para modificar este curso" }
 ```
 
-### 📚 `DELETE /api/cursos/:id` *(admin / dueño)* — sin body
+### `DELETE /api/cursos/:id` *(admin / dueño)* — sin body
 **Response `200`**
 ```json
 {
@@ -506,7 +506,7 @@ Se envían solo los campos a modificar.
 }
 ```
 
-### ❌ Errores de autenticación
+### Errores de autenticación
 ```json
 // 401 — sin token
 { "success": false, "message": "Acceso denegado: falta el token (Authorization: Bearer <token>)" }
@@ -523,7 +523,7 @@ Se envían solo los campos a modificar.
 
 ---
 
-## ✅ Funcionalidades implementadas
+## Funcionalidades implementadas
 
 - CRUD completo de **cursos** con `populate` de categoría e instructor
 - **Categorías**: listar, obtener, crear y eliminar (no se puede eliminar una con cursos asociados)
@@ -535,7 +535,7 @@ Se envían solo los campos a modificar.
 - **CORS** habilitado, variables de entorno con **dotenv**
 - Script de **seed** con los cursos y categorías del front de MateA
 
-## 🔮 Funcionalidades a futuro
+## Funcionalidades a futuro
 
 - Colección `inscripciones` (alumno ↔ curso, progreso y completado) con índice único `(usuario, curso)`
 - Colección `reseñas` (calificación y comentario) y promedio de calificación por curso
@@ -547,7 +547,7 @@ Se envían solo los campos a modificar.
 
 ---
 
-## 🔗 Conexión con el front de MateA (React)
+## Conexión con el front de MateA (React)
 
 1. La API ya tiene **CORS** habilitado, así que el front puede llamarla desde `http://localhost:5173`.
 2. Las imágenes se guardan como rutas (`/img/Ingles.png`). Copiá las imágenes de `src/assets` del front a `public/img` (con los mismos nombres de archivo) y se verán con esas rutas.
